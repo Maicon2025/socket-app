@@ -1,4 +1,105 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Junior Free</title>
+    <style>
+        body { background: #050505; color: #00f2ff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        .header { width: 100%; padding: 20px; text-align: center; background: #111; border-bottom: 2px solid #00f2ff; box-shadow: 0 0 15px #00f2ff; }
+        
+        .container { width: 90%; max-width: 400px; margin-top: 20px; background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #333; }
+        
+        /* Área de Logs Profissional */
+        .log-container {
+            width: 90%; max-width: 400px; height: 180px; background: #000; margin-top: 15px; border-radius: 10px;
+            padding: 12px; font-family: 'Courier New', monospace; font-size: 11px; overflow-y: auto; border: 1px solid #222; color: #00ff88;
+        }
+
+        .log-entry { margin-bottom: 4px; border-left: 2px solid #333; padding-left: 5px; }
+        .log-info { color: #00f2ff; }
+        .log-success { color: #00ff88; font-weight: bold; text-shadow: 0 0 5px #00ff88; }
+
+        input, select { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #00f2ff; background: #000; color: #fff; box-sizing: border-box; outline: none; }
+        
+        .btn-connect {
+            width: 100%; padding: 15px; background: linear-gradient(45deg, #00d4ff, #0055ff);
+            border: none; border-radius: 10px; color: white; font-weight: bold; font-size: 18px; margin-top: 15px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); cursor: pointer; transition: 0.3s;
+        }
+
+        .connecting-pulse { animation: pulse 1.2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        .footer { margin-top: auto; padding: 20px; font-size: 11px; color: #666; text-align: center; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2 style="margin:0; letter-spacing: 2px;">INTERNET JUNIOR FREE</h2>
+    </div>
+
+    <div class="container">
+        <select id="payload">
+            <option value="vivo">VIVO CLOUD TURBO</option>
+            <option value="tim">TIM ILIMITADA 5G</option>
+        </select>
+        <input type="text" id="user" placeholder="Usuário SSH">
+        <input type="password" id="pass" placeholder="Senha">
+        <button id="btn" class="btn-connect" onclick="iniciarConexao()">CONECTAR AGORA</button>
+    </div>
+
+    <div class="log-container" id="logs">
+        <div class="log-entry">Status: Pronto para conectar...</div>
+    </div>
+
+    <div class="footer">
+        © 2026 Todos os direitos reservados<br>
+        <strong>Junior Stankunavicius</strong><br>
+        11933171664 whatsapp app
+    </div>
+
+    <script>
+        function addLog(texto, classe = "") {
+            const logs = document.getElementById('logs');
+            const entry = document.createElement('div');
+            entry.className = "log-entry " + classe;
+            const hora = new Date().toLocaleTimeString();
+            entry.innerText = "[" + hora + "] " + texto;
+            logs.appendChild(entry);
+            logs.scrollTop = logs.scrollHeight;
+        }
+
+        function iniciarConexao() {
+            const btn = document.getElementById('btn');
+            const usuario = document.getElementById('user').value;
+
+            if(!usuario) {
+                alert("Por favor, insira o usuário!");
+                return;
+            }
+
+            btn.innerText = "CONECTANDO...";
+            btn.classList.add('connecting-pulse');
+            
+            // Sequência de Logs Estilo SocketLitePro
+            setTimeout(() => addLog("Iniciando serviço VPN...", "log-info"), 500);
+            setTimeout(() => addLog("Conectando ao servidor 172.237.63.119...", "log-info"), 1200);
+            setTimeout(() => addLog("Autenticando usuário: " + usuario, "log-info"), 2000);
+            setTimeout(() => addLog("Handshake SSH estabelecido!", "log-info"), 2800);
+            setTimeout(() => {
+                addLog("CONECTADO COM SUCESSO!", "log-success");
+                btn.innerText = "DESCONECTAR";
+                btn.style.background = "linear-gradient(45deg, #ff4444, #cc0000)";
+                btn.classList.remove('connecting-pulse');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
+ html>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
