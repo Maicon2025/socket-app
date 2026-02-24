@@ -7,8 +7,7 @@
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-navigation href="*" />
+    <allow-intent href="https://*/*" />    <allow-navigation href="*" />
 
     <plugin name="cordova-plugin-network-information" spec="3.0.0" />
     <plugin name="cordova-plugin-vpn-service" spec="https://github.com/thefubuki/cordova-plugin-vpn-service.git" />
