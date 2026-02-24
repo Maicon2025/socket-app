@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.junior.free" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>InternetJuniorFree</name>
-    <description>Aplicativo VPN Internet Junior Free</description>
+    <description>Aplicativo VPN Junior</description>
     <author email="junior@stankunavicius.com">Junior Stankunavicius</author>
     
     <content src="index.html" />
@@ -10,18 +10,12 @@
     <allow-intent href="https://*/*" />
     <allow-navigation href="*" />
 
-    <plugin name="cordova-plugin-network-information" spec="https://github.com/apache/cordova-plugin-network-information" />
-    <plugin name="cordova-plugin-vpn-service" spec="https://github.com/thefubuki/cordova-plugin-vpn-service" />
+    <plugin name="cordova-plugin-network-information" spec="3.0.0" />
+    <plugin name="cordova-plugin-vpn-service-fubuki" spec="https://github.com/thefubuki/cordova-plugin-vpn-service#master" />
     
     <platform name="android">
         <preference name="android-minSdkVersion" value="24" />
         <preference name="android-targetSdkVersion" value="35" />
-        <preference name="android-compileSdkVersion" value="35" />
-
-        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
-            <application android:usesCleartextTraffic="true" />
-        </edit-config>
-
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.INTERNET" />
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
